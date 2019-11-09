@@ -50,8 +50,9 @@ int dequeue(int* ary,int ary_siz)
     }
     else
     {
-        out = ary[start];
+        //n-1版本start要先++，因為start沒放東西
         start = (start+1)%ary_siz;
+        out = ary[start];
     }
     cout<<"current start: "<<start<<" ,current rear: "<<rear<<endl;
     return out;
@@ -72,7 +73,9 @@ int main()
     {
         if(cmd == "enqueue")
         {
+            //cout<<"ary: "<<ary<<endl;
             cin>>in;
+            //ary中存放的是ary這個array的起始位址
             enqueue(ary,in,rsize);
             print_queue(ary, rsize);
             cout<<"current queue length: "<<queue_length(rsize)<<endl;
@@ -80,6 +83,7 @@ int main()
         else if(cmd == "dequeue")
         {
             out = dequeue(ary,rsize);
+            if(out != NULL)cout<<"delete "<<out<<endl;
             print_queue(ary, rsize);
             cout<<"current queue length: "<<queue_length(rsize)<<endl;
         }
