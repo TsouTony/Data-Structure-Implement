@@ -127,6 +127,8 @@ int main()
             postorder(r);
             cout<<endl;
             break;
+        default:
+            cout<<"wrong input"<<endl;
         }
     }
     return 0;

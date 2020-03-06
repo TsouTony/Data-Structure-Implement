@@ -1,5 +1,6 @@
 #include<iostream>
 #include<vector>
+
 using namespace std;
 vector<char> origin;
 
@@ -42,7 +43,7 @@ void postorder(node* r)
         cout<<r->value<<" ";
     }
 }
-void copy_BT(node* r)
+node* copy_BT(node* r)
 {
     if(r==NULL)return NULL;
     else{
@@ -50,8 +51,8 @@ void copy_BT(node* r)
         t->value=r->value;
         t->left=copy_BT(r->left);
         t->right=copy_BT(r->right);
+        return t;
     }
-    return t;
 }
 
 int main()
@@ -117,7 +118,34 @@ int main()
         else if(n_ary[i].left!=NULL && n_ary[i].right==NULL)cout<<i<<"th's child: "<<n_ary[i].left->value<<endl;
         else cout<<i<<"th's child: "<<n_ary[i].left->value<<" "<<n_ary[i].right->value<<endl;
     }
+
     node* copy_r=copy_BT(r);
+    //print the copy tree
+    cout<<"1: preorder"<<endl;
+    cout<<"2: inorder"<<endl;
+    cout<<"3: postorder"<<endl;
+    while(1)
+    {
+        cout<<"input the type of traversal: ";
+        cin>>type;
+        switch(type)
+        {
+        case 1:
+            preorder(copy_r);
+            cout<<endl;
+            break;
+        case 2:
+            inorder(copy_r);
+            cout<<endl;
+            break;
+        case 3:
+            postorder(copy_r);
+            cout<<endl;
+            break;
+        default:
+            cout<<"wrong input"<<endl;
+        }
+    }
 
     return 0;
 }
