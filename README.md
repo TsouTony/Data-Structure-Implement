@@ -7,3 +7,6 @@
 
 1.完成Chap2的algo.
 
+2020/3/6
+
+1.BT_equal not complete.
